@@ -57,6 +57,7 @@ async function sendTo(chatId, text) {
     } catch (e) {
       // Только тип/код ошибки — без текста сообщения и chat id (логи публичные).
       console.log(`telegram: ${e?.name || "error"} ${e?.cause?.code || ""} ${String(e?.message || "").slice(0, 60)}`);
+      await sleep(3_000); // разовый сетевой сбой раннера — повтор чуть позже
     }
   }
   return false;
