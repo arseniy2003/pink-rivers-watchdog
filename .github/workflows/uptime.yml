@@ -52,6 +52,6 @@ jobs:
       - name: keepalive
         if: github.event_name == 'schedule'
         continue-on-error: true
-        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/watchdog.yml/enable" --silent
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/uptime.yml/enable" --silent
         env:
           GH_TOKEN: ${{ github.token }}
