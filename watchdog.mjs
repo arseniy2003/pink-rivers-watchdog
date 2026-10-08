@@ -55,7 +55,8 @@ async function sendTo(chatId, text) {
       console.log(`telegram: HTTP ${r.status}`);
       return false;
     } catch (e) {
-      console.log(`telegram: ${e?.name || "error"}`);
+      // Только тип/код ошибки — без текста сообщения и chat id (логи публичные).
+      console.log(`telegram: ${e?.name || "error"} ${e?.cause?.code || ""} ${String(e?.message || "").slice(0, 60)}`);
     }
   }
   return false;
